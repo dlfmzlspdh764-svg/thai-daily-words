@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#e8505b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="태국어 단어">
+<title>매일 태국어 단어</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="title">🇹🇭 매일 태국어 단어</div>
+  <nav class="tabs">
+    <button data-tab="today" class="active">오늘의 단어</button>
+    <button data-tab="quiz">복습 퀴즈</button>
+    <button data-tab="list">전체 단어</button>
+  </nav>
+</header>
+<main>
+  <section id="tab-today">
+    <div class="daynav">
+      <button id="prev" aria-label="이전 날">◀</button>
+      <div class="daylabel"><div id="dateText"></div><div id="dayInfo" class="muted"></div></div>
+      <button id="next" aria-label="다음 날">▶</button>
+    </div>
+    <div class="row-center"><button id="todayBtn" class="pill">오늘로</button>
+      <label class="muted small">하루 <select id="perDay"><option>5</option><option>7</option><option>10</option></select> 단어</label></div>
+    <div id="cards"></div>
+    <p class="muted small center">💡 태국어 글자나 예문을 누르면 원어민 발음(보통 속도)이 나와요.</p>
+  </section>
+  <section id="tab-quiz" hidden>
+    <div class="row-center">
+      <label class="small">범위 <select id="quizScope"><option value="seen">지금까지 나온 단어</option><option value="learned">외운 단어만</option><option value="all">전체 단어</option></select></label>
+      <label class="small">유형 <select id="quizType"><option value="t2k">태국어 → 뜻</option><option value="k2t">뜻 → 태국어</option><option value="listen">듣고 고르기</option></select></label>
+    </div>
+    <div id="quizBox" class="card"></div>
+    <div id="quizScore" class="center muted"></div>
+  </section>
+  <section id="tab-list" hidden>
+    <div class="row-center"><input id="search" type="search" placeholder="검색 (태국어·한국어·발음)">
+      <label class="small"><input type="checkbox" id="onlyLearned"> 외운 것만</label></div>
+    <div id="stats" class="center muted small"></div>
+    <div id="list"></div>
+    <div class="center"><button id="cacheAll" class="pill">📥 오프라인용 음성 전체 저장</button><div id="cacheMsg" class="muted small"></div></div>
+  </section>
+</main>
+<div id="toast" hidden></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
